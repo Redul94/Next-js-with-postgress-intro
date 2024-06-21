@@ -1,12 +1,13 @@
 "use client";
 import Style from "@/app/page.module.css";
 import Link from "next/link";
-import React, { useState ,useRouter} from 'react';
+import React, { useState } from 'react';
+import { useRouter } from "next/navigation";
 
 export default function AddPost() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    // const router = useRouter()
+    const router = useRouter()
   
     const handleTitleChange = (event) => {
       setTitle(event.target.value);
@@ -27,7 +28,7 @@ export default function AddPost() {
               },
               body: JSON.stringify({title, content}) })
               
-          // router.refresh()
+          router.refresh()
       } catch (error){
           console.error(error)
       }
@@ -38,7 +39,7 @@ export default function AddPost() {
   
       return (
           <main className={Style.main}>
-              <Link href={'/addPost'}>View Feed</Link>
+              <Link href={'/'}>View Feed</Link>
           <h1>Add Post</h1>
           <form onSubmit={handleSubmit} className={Style.formContainer}>
           <div>
