@@ -1,3 +1,5 @@
+import DeletePostBtn from "./Delete";
+
 export default function Post({id,tittle,content,authorName}){
     return (
         <div style={{border: '1px solid white',padding:'15px',margin:'10px'}}>
@@ -10,6 +12,7 @@ export default function Post({id,tittle,content,authorName}){
             <p>
                 {content}
             </p>
+            <DeletePostBtn postId={id}/>
         </div>
     )
 }
